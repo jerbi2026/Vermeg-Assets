@@ -1,0 +1,26 @@
+<app-admin-sidebar></app-admin-sidebar>
+<body>
+<main id="main">
+   
+<div class="form-container">
+   <div class="form">
+       <span class="heading">Edit Profile</span>
+       <input placeholder="Name" type="text" class="input" name="username" [(ngModel)]="name">
+       <input placeholder="Email" id="mail" type="email" class="input" name="email" [(ngModel)]="email">
+       <input placeholder="Numero" id="mail" type="number" class="input" name="numero" [(ngModel)]="numero">
+       <input placeholder="Place" id="mail" type="text" class="input" name="place" [(ngModel)]="place">
+       <input placeholder="image" id="mail" type="text" class="input" name="image" [(ngModel)]="image">
+       <input placeholder="Date" id="mail" type="number" class="input" name="date" [(ngModel)]="date">
+
+
+       <div class="button-container">
+       <div class="send-button" (click)="update_admin()">Update</div>
+       <div class="reset-button-container">
+           <div id="reset-btn" class="reset-button" (click)="reset()">Reset</div>
+       </div>
+   </div>
+</div>
+</div>
+</main>
+
+</body>

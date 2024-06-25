@@ -1,0 +1,4 @@
+nav > h2:hover {
+    text-shadow: 5px 5px 2px tomato; /* Décalage horizontal, décalage vertical, étendue floue, couleur de l'ombre (bleu) */
+  }
+ 

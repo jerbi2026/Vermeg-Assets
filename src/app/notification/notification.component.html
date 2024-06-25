@@ -1,0 +1,73 @@
+
+<app-admin-sidebar></app-admin-sidebar>
+<main id="main">
+    <app-admin-navbar
+        [uername]="admin.username"
+        [image]="admin.image"></app-admin-navbar>
+    <h2 style="color:red;">Home > Notification</h2>
+    <hr style="width: 100%; color: #36b9cc;">
+   
+     
+      <section>
+        <h2 >Les Comptes Crées</h2>
+        <table class="table1">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>password</th>
+                    <th>Place</th>
+                    <th>Image</th>
+                    <th>Numero</th>
+                    <th>Date</th>
+                    
+  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let regis of registrations" >
+                    <td>{{regis.email}}</td>
+                    <td>{{regis.username}}</td>
+                    <td>{{regis.password}}</td>
+                    <td>{{regis.place}}</td>
+                    <td>{{regis.image}}</td>
+                    <td>{{regis.numero}}</td>
+                    <td>{{regis.date | date:'dd/MM/yyyy'}}</td>
+                    <td><button (click)="delete_registration(regis.email)">
+                      <span class="transition"></span>
+                      <span class="gradient"></span>
+                      <span class="label">Delete</span>
+                    </button></td>
+                </tr>
+                
+            </tbody>
+        </table>
+  </section>
+      <section>
+            <h2 >Les Transactions</h2>
+            <table class="table3">
+                <thead>
+                    <tr>
+                        <th>Id de la transaction</th>
+                        <th>Message</th>
+                        <th>Id de client</th>
+                        <th>Quantite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let trans of transactions | paginate:{itemsPerPage:5 , currentPage:p}; ">
+                        <td>{{trans.id}}</td>
+                        <td>{{trans.message}}</td>
+                        <td><a (click)="search_id(trans.client_id)" style="cursor:crosshair; color: red;">{{trans.client_id}}</a></td>
+                        <td>{{trans.quantite}}</td>
+                    </tr>
+                </tbody>
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </table>
+            <button (click)="downloadExcelFile()" style="margin-left: 5%; margin-top: 2%; margin-bottom: 5%;">Save Transactions</button>
+      </section>
+      
+
+      
+      
+</main>

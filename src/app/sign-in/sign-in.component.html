@@ -1,0 +1,78 @@
+<body>
+<div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input  type="text" class="input" [(ngModel)]="nom">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input  type="password" class="input" data-type="password" [(ngModel)]="pass">
+          </div>
+         
+          <div class="group">
+            <input type="submit" class="button" value="Sign In"style="margin-top: 5%;" (click)="submit()">
+            <input type="submit" class="button" value="Cancel" (click)="vider()" style="margin-top: 5%;">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a routerLink="/sign_in/forget_pass">Forgot Password?</a>
+          </div>
+        </div>
+        <div class="sign-up-htm">
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input id="user1" type="text" class="input" name="username_sign_up"   [(ngModel)]="username_sign_up">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input  type="password" class="input" data-type="password" name="pass1_sign_up"  [(ngModel)]="pass1">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Repeat Password</label>
+            <input type="password" class="input" data-type="password" name="pass2_sign_up"  [(ngModel)]="pass2">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Email Address</label>
+            <input type="email" class="input" name="email_sign_up"  [(ngModel)]="email_sign_up">
+          </div>
+          <div class="group">
+            <label for="user" class="label">image</label>
+            <input id="user" type="text" class="input" name="username_sign_up"   [(ngModel)]="image_sign_up">
+          </div>
+          <div class="group">
+            <label for="user" class="label">numero</label>
+            <input id="user" type="number" class="input" name="username_sign_up"   [(ngModel)]="numero">
+          </div>
+          <div class="group">
+            <label for="user" class="label">place</label>
+            <input id="user" type="text" class="input" name="username_sign_up"   [(ngModel)]="place">
+          </div>
+          <div class="group">
+            <input type="submit" class="button" style="margin-top: 5%;" value="Sign Up" (click)="ajout_user()">
+          </div>
+          <div class="hr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="snackbar"></div>
+  
+<dialog id="dialog" open *ngIf="ok==false">
+	<h2>Welcome Mr {{nom}}</h2>
+	<p>Vermeg (for banking software) vous souhaite le bienvenu dans le produit de mr JERBI</p>
+
+	<button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+</dialog>
+<dialog id="dialog" open *ngIf="verif==true">
+	<h2>Welcome Mr {{username_sign_up}}</h2>
+	<p>on va verifier ton e-mail, s'il vous plait continue les procèdures </p>
+
+	<button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+</dialog>
+  
+</body>

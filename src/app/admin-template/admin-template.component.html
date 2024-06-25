@@ -1,0 +1,146 @@
+
+<app-admin-sidebar></app-admin-sidebar>
+
+<main id="main">
+  <app-admin-navbar
+  [uername]="admin.username"
+  [image]="admin.image"></app-admin-navbar>
+    <h2 style="color:#c60606;">Home > Dashboard</h2>
+    <hr style="width: 100%;">
+    <app-test-admin></app-test-admin>
+    <section>
+        <h2 >Nos comptes</h2>
+      <div class="table-wrapper">
+          <table class="fl-table">
+              <thead>
+              <tr>
+                  <th>Client</th>
+                  <th>Id</th>
+                  <th>E-mail</th>
+                  <th>Passwords</th>
+                  <th>Numero</th>
+                  <th>Solde</th>
+                  <th>Emplacement</th>
+                  <th>Date d'embauche</th>
+                  <th>Nombre d'actions</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of us2 | paginate:{itemsPerPage:tab , currentPage:p};">
+                  <td>{{user.username}}</td>
+                  <td>{{user.id}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.password}}</td>
+                  <td>{{user.numero}}</td>
+                  <td>{{user.solde}}£</td>
+                  <td>{{user.place}}</td>
+                  <td>{{user.date_embauche}}</td>
+                  <td>{{user.nb_transaction}}</td>
+
+                  
+                  
+              </tr>
+             
+            
+              <tbody>
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+          </table>
+      </div>
+      </section>
+      
+      <section>
+        <h2 >To DO List</h2>
+        <div class="form">
+          <input type="text" class="input"  [(ngModel)]="task_field"/>
+          <input type="submit" class="add" value="Add Task" (click)="add_task()"  />
+      </div>
+      <div class="table-wrapper">
+          <table class="fl-table" style="border: 0px;">
+             
+              <tbody>
+              <tr  *ngFor="let task of tasks">
+                  <td>{{task.id}}</td>
+                  <td>{{task.task}}</td>
+                  <td><button class="modify" (click)="edit_task(task.id)">Edit</button></td>
+                  <td> <button class="delete" (click)="delete_task_by_id(task.id)" >Delete</button></td>
+                  
+                  
+                  
+              </tr>
+             
+            
+              <tbody>
+              
+          </table>
+      </div>
+      <div class="delete-all" (click)="delete_all()">Delete all</div>
+      </section>
+      <!---------------------------------------------->
+      
+      
+
+    
+  
+  
+  
+  <h2>Nos Contacts</h2>
+<section style="height: 20% ; display: flex ; flex-direction: row;">
+      
+<div class="container-fluid">
+  <h1 class="text-center">Vermeg In French </h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.0322630214373!2d2.2341431884454215!3d48.89572229743244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2282cf006f%3A0x745dd26f27f3e6b3!2sVERMEG%20france!5e0!3m2!1sfr!2stn!4v1689951558224!5m2!1sfr!2stn" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   </div>
+
+
+
+      
+<div class="container-fluid">
+  <h1 class="text-center">Vermeg In Tunisia</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25547.730089311743!2d10.212338242675367!3d36.83130790000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd351432affb6b%3A0xa2369429e6a98662!2sVERMEG%20Tunis!5e0!3m2!1sfr!2stn!4v1689951472448!5m2!1sfr!2stn" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</section>
+<section style="height: 20% ; display: flex ; flex-direction: row;">
+    <div class="row text-center" style="margin-left:10% ;">
+        <div class="col-4 box1 pt-4">
+            <a href="tel:+21650978505"><i class="fas fa-phone fa-3x"></i>
+            <h3 class="d-none d-lg-block d-xl-block">Phone</h3>
+            <p class="d-none d-lg-block d-xl-block">50 978 505</p></a>
+          </div>
+          <div class="col-4 box2 pt-4" style="color: white;">
+            <h3 class="d-none d-lg-block d-xl-block">Address</h3>
+            <p class="d-none d-lg-block d-xl-block">Paris, Champs Elysée</p>
+          </div>
+          <div class="col-4 box3 pt-4" style="width: 66.7%;">
+            <a href="mailto:jerbi@gmail.com"><i class="fas fa-envelope fa-3x"></i>
+            <h3 class="d-none d-lg-block d-xl-block">E-mail</h3>
+            <p class="d-none d-lg-block d-xl-block" style="text-align: left;">jerbi@gmail.com</p></a>
+      
+          </div>
+   </div>
+   <div class="row text-center" style="margin-left:15% ;">
+    <div class="col-4 box1 pt-4">
+        <a href="tel:+21650978505"><i class="fas fa-phone fa-3x"></i>
+        <h3 class="d-none d-lg-block d-xl-block">Phone</h3>
+        <p class="d-none d-lg-block d-xl-block">50 978 505</p></a>
+      </div>
+      <div class="col-4 box2 pt-4" style="color: white;">
+        <h3 class="d-none d-lg-block d-xl-block">Address</h3>
+        <p class="d-none d-lg-block d-xl-block">Lac 1, tunis</p>
+      </div>
+      <div class="col-4 box3 pt-4" style="width: 66.7%;">
+        <a href="mailto:jerbi@gmail.com"><i class="fas fa-envelope fa-3x"></i>
+        <h3 class="d-none d-lg-block d-xl-block">E-mail</h3>
+        <p class="d-none d-lg-block d-xl-block"  style="text-align: left;">khalil@gmail.com</p></a>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  
+</main>

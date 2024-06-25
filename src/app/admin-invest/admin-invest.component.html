@@ -1,0 +1,172 @@
+<app-admin-sidebar></app-admin-sidebar>
+<main id="main">
+  <app-admin-navbar
+  [uername]="admin.username"
+  [image]="admin.image"></app-admin-navbar>
+    <h2 style="color:red;">Home > Projets d'investissements</h2>
+    <hr style="width: 100%; ">
+    <div style="display: flex; flex-direction: row;">
+    
+
+        <div style="flex: 1; margin-right: 10px;">
+            <h1 style="color:red;">Capital and VAN </h1>
+            <ngx-charts-bar-vertical-2d
+            [view]="[550, 500]"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [xAxisLabel]="'Projet'"
+            [yAxisLabel]="'VAN'"
+            [results]="stat_Van"
+            [legend]="true"
+        
+          >
+          </ngx-charts-bar-vertical-2d>
+        </div>
+      
+        <div style="flex: 1; margin-left: 10px;">
+            <h1 style="color:red;">IP</h1>
+            <ngx-charts-area-chart
+            [view]="[550, 500]"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [xAxisLabel]="'Projet'"
+            [yAxisLabel]="'VAN'"
+            [results]="stat_Ip"
+            [legend]="true"
+        
+          >
+          </ngx-charts-area-chart>
+           
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row;">
+    
+
+        <div style="flex: 1; margin-right: 10px;" >
+            <h1 style="color:red;">Delai de recuperation </h1>
+            <ngx-charts-tree-map
+            [view]="[600, 500]"
+            
+            [results]="stat_Dr"
+        
+          >
+          </ngx-charts-tree-map>
+        </div>
+      
+        <div style="flex: 1; margin-left: 10px;">
+            <h1 style="color:red;">Capital</h1>
+            <ngx-charts-number-card
+            [view]="[400, 500]"
+            [results]="stat_Capital"
+            textColor="black"
+            bandColor="red"
+          >
+          </ngx-charts-number-card>
+           
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>projet</th>
+                <th>VAN</th>
+                <th>IP</th>
+                <th>Capital</th>
+                <th>DR</th>
+                <th>taux</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let projet of projects_traited">
+                <td>{{projet.id}}</td>
+                <td>{{projet.projet}}</td>
+                <td>{{projet.van}}</td>
+                <td>{{projet.ip}}</td>
+                <td>{{projet.capital}}</td>
+                <td>{{projet.dr}}</td>
+                <td>{{projet.taux}}</td>
+                <td><button (click)="delete_project(projet.id)">
+                        <span>Delete</span>
+                    </button>
+                </td>
+              
+                
+            </tr>
+            
+            <tbody>
+        </table>
+        <button (click)="add_project()">
+            <span>Add Project</span>
+        </button>
+        <button (click)="downloadExcelFile()">
+          <span>save Projects</span>
+        </button>
+    </div>
+    
+    <form class="form" [hidden]="affiche_add_box" >
+        <div class="form-title"><span>Add Project</span></div>
+         <div class="title-2"><span>Investissement</span></div>
+         <div class="title-2"><span>Faites Attention aux valeurs!!</span></div>
+        <label for="" style="color: antiquewhite;">Project Name</label>
+         <div class="input-container">
+           <input class="input-mail" type="text" name="name" placeholder="Enter project name" required [(ngModel)]="project_name"> 
+           <span> </span>
+         </div>
+         <label for="" style="color: antiquewhite;">Project Capital</label>
+         <div class="input-container">
+            <input class="input-mail" type="number" name="capital" placeholder="Capital" required [(ngModel)]="project_capital">
+            <span> </span>
+          </div>
+          <label for="" style="color: antiquewhite;">Project Van</label>
+          <div class="input-container">
+            <input class="input-mail" type="number" name="van" placeholder="VAN" required [(ngModel)]="project_van">
+            <span> </span>
+          </div>
+          <label for="" style="color: antiquewhite;">Project IP</label>
+          <div class="input-container">
+            <input class="input-mail" type="number" name="ip" placeholder="IP" required [(ngModel)]="project_ip">
+            <span> </span>
+          </div>
+          <label for="" style="color: antiquewhite;">Project DR</label>
+          <div class="input-container">
+            <input class="input-mail" type="number" name="dr" placeholder="DR" required [(ngModel)]="project_dr">
+            <span> </span>
+          </div>
+          <label for="" style="color: antiquewhite;">Taux d'actualisation</label>
+          <div class="input-container">
+            <input class="input-mail" type="number" name="taux" placeholder="Taux d'actualisation" required [(ngModel)]="project_taux">
+            <span> </span>
+          </div>
+   
+         <section class="bg-stars">
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+           <span class="star"></span>
+         </section>
+   
+        
+         <button type="submit" class="submit" (click)="add_new_project()">
+           <span class="sign-text">Submit</span>
+         </button>
+         <button type="submit" class="submit" (click)="cancel_add()">
+            <span class="sign-text">Cancel</span>
+          </button>
+   
+         
+          
+      </form>
+
+
+
+   
+        
+
+
+</main>

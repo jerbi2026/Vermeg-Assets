@@ -1,0 +1,124 @@
+<header class="header" role="banner">
+  <h1 class="logo">
+    <a><img class="img2" src="assets/image/logo.png" alt=""></a>
+  </h1>
+  <div class="nav-wrap">
+    <nav class="main-nav" role="navigation">
+      <ul class="unstyled list-hover-slide">
+        <li><a (click)="goBack()" style="cursor:grab;">Go Back</a></li>
+        <li><a routerLink="/sign_in">Log out</a></li>
+      </ul>
+    </nav>
+   
+  </div>
+  
+</header>
+
+<main id="main">
+    <app-admin-navbar
+        [uername]="admin.username"
+        [image]="admin.image"></app-admin-navbar>
+
+    <!---------------------------------------------------------------->
+    <div style="display: flex; flex-direction: row; margin-top: 10%; margin-left: 5%;">
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #390303, #d00404);">
+          <div class="card-details">
+            <p class="text-title">ID</p>
+            <p  style="color: white;">{{admin.id}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #3c3e3e, #000000);">
+          <div class="card-details">
+            <p class="text-title">Username</p>
+            <p style="color: white;">{{admin.username}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #390303, #d00404);">
+          
+          <div class="card-details" >
+            <a href="mailto:{{admin.email}}" style="text-decoration: solid;">
+            <p class="text-title" >E-mail</p>
+          </a>
+            <p  style="font-size: 12px; color: white;">{{admin.email}}</p>
+          
+          </div>
+        
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #3c3e3e, #000000);">
+          <div class="card-details">
+            <p class="text-title">Actions</p>
+            <p style="color: white;">{{admin.nb_transaction}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div style="display: flex; flex-direction: row; margin-top: 10%; margin-left: 5%;">
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #3c3e3e, #000000);">
+          <div class="card-details">
+            <p class="text-title">Solde</p>
+            <p style="color: white;">{{admin.solde}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #390303, #d00404);">
+          <div class="card-details">
+            <p class="text-title">Place</p>
+            <p style="color: white;">{{admin.place}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #3c3e3e, #000000);">
+          <div class="card-details">
+            <p class="text-title">Date d'embauche</p>
+            <p style="color: white;">{{admin.date_embauche}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="flex: 1; margin-right: 10px;">
+        <div class="card" style="background: linear-gradient(45deg, #390303, #d00404);">
+          <div class="card-details">
+            <a href="tel:+216{{admin.numero}}" style="text-decoration: solid;">
+            <p class="text-title">Numero</p>
+          </a>
+            <p style="color: white;">{{admin.numero}}</p>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+
+
+
+
+
+    <div style="display: flex; flex-direction: row; margin-top: 10%; margin-left: 5%;">
+      
+    
+      
+    </div>
+
+   
+
+</main>

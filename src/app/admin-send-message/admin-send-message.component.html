@@ -1,0 +1,39 @@
+<app-admin-sidebar></app-admin-sidebar>
+<main id="main">
+  <app-admin-navbar
+  [uername]="admin.username"
+  [image]="admin.image"></app-admin-navbar>
+    <h2 style="color:red;">Home > Send Message</h2>
+    <hr style="width: 100%; color: #36b9cc;">
+    <section style="display: flex; flex-direction: row;">
+        <div style="margin-left: 5%;"  *ngFor="let user of users_affiche | paginate:{itemsPerPage:tab , currentPage:p};" >
+            <div class="card">
+                <div class="card-details">
+                  <p class="text-title" style="color: darkred;">{{user.username}}</p>
+                  <p class="text-body">{{user.place}}</p>
+                  <p class="text-body">{{user.email}}</p>
+
+                </div>
+                <button class="card-button" (click)="prepare_email(user.email)">Send Mail</button>
+              </div>
+               
+        </div>    
+    </section>
+    <div style="margin-top: 5%;">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+    <div class="form-container" [hidden]="affiche_box_send">
+        <form class="form">
+          <div class="form-group">
+            <label for="text">Subject</label>
+            <input type="text" id="email" name="subj" required="" [(ngModel)]="subject">
+          </div>
+          <div class="form-group">
+            <label for="textarea">Body</label>
+            <textarea name="textarea" id="textarea" rows="10" cols="50" required="" [(ngModel)]="body"></textarea>
+          </div>
+          <button class="form-submit-btn" type="submit" (click)="send_email()">Send</button>
+        </form>
+      </div>
+
+</main>

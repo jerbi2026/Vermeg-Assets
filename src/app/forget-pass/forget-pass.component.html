@@ -1,0 +1,20 @@
+<body>
+    
+<div class="center">
+    <h1>Jerbi Corporation</h1>
+    <form>
+      <div class="inputbox">
+        <input type="text" name="user_email" required="required"  [(ngModel)]="user_email" >
+        <span id="monSpan">your email</span>
+      </div>
+      
+      <div class="inputbox">
+        <input type="button" name="user_email" [hidden]="isButtonDisabled1" value="submit" (click)="submit()" >
+      </div>
+      <div class="inputbox">
+        <input type="button" [hidden]="isButtonDisabled2" name="user_email" value="validate" (click)="submit2()" >
+      </div>
+    </form>
+  </div>
+  <div id="snackbar"></div>
+</body>

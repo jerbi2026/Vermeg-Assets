@@ -1,0 +1,110 @@
+<app-user-sidebar></app-user-sidebar>
+<main id="main">
+    <app-admin-navbar
+    [uername]="admin.username"
+    [image]="admin.image"></app-admin-navbar>
+ 
+  <body >
+   
+    <div class="login-wrap">
+        <div class="login-html">
+          <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Send Money</label>
+          <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Send Actions</label>
+          <div class="login-form">
+            <div class="sign-in-htm">
+              <div class="group">
+                <label for="user" class="label">Username</label>
+                <input  type="text" class="input" [(ngModel)]="username_sender">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Password</label>
+                <input  type="password" class="input" data-type="password"  [(ngModel)]="password_sender">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Somme</label>
+                <input  type="number" class="input" [(ngModel)]="somme" >
+              </div>
+              <div class="group">
+                <label for="pass" class="label">To (id)</label>
+                <input type="number" class="input" name="pass2_sign_up" [(ngModel)]="id_receiver">
+              </div>
+            
+             
+              <div class="group">
+                <input type="submit" class="button" value="Send"style="margin-top: 5%;" (click)="send_money()" >
+                <input type="submit" class="button" value="Cancel" style="margin-top: 5%;" (click)="cancel()">
+              </div>
+              <div class="group">
+                <input type="submit" class="button" style="margin-top: 5%;" value="View receiver profile" (click)="view_profile()">
+              </div>
+              <div class="hr"></div>
+              
+            </div>
+            <div class="sign-up-htm">
+              <div class="group">
+                <label for="user" class="label">Username</label>
+                <input id="user1" type="text" class="input" name="username_sign_up" [(ngModel)]="username_sender">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Password</label>
+                <input  type="password" class="input" data-type="password" name="pass1_sign_up" [(ngModel)]="password_sender" >
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Quantite</label>
+                <input type="number" class="input" name="pass2_sign_up" [(ngModel)]="quantite">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">To (id)</label>
+                <input type="number" class="input" name="pass2_sign_up" [(ngModel)]="id_receiver">
+              </div>
+            
+              
+              <div class="group">
+                <input type="submit" class="button" style="margin-top: 5%;" value="Send" (click)="send_actions()">
+              </div>
+              <div class="group">
+                <input type="submit" class="button" style="margin-top: 5%;" value="Cancel" (click)="cancel()">
+              </div>
+              <div class="group">
+                <input type="submit" class="button" style="margin-top: 5%;" value="View receiver profile" (click)="view_profile()">
+              </div>
+              <div class="hr"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="snackbar"></div>
+      
+      
+    
+      
+    </body>
+    <div style="display: flex; flex-direction: row;" [hidden]="show_receiver" >
+        
+        <div style="flex:1; margin-left: 40%;" >
+            <div class="card">
+                <img src="{{reciever.image}}" alt="" style="height: 20%;width: 40%; border-radius: 10%;">
+                <p class="heading">
+    
+                  {{reciever.username}}
+                </p>
+                <p>
+                    {{reciever.date_embauche}}
+                </p>
+                <p>{{reciever.place}}
+              </p>
+              <button type="button" class="btn btn-danger" (click)="close_reciever()">Close</button>
+              
+            </div>
+           
+              
+    
+
+        </div>
+    </div>
+   
+
+    
+
+
+</main>

@@ -1,0 +1,20 @@
+<body>
+    
+<div class="center">
+    <h1>Reset Password</h1>
+    <form>
+      <div class="inputbox">
+        <input type="text" required="required" name="pass1" [(ngModel)]="pass1">
+        <span>New Password</span>
+      </div>
+      <div class="inputbox">
+        <input type="text" required="required" name="pass2" [(ngModel)]="pass2">
+        <span>Password</span>
+      </div>
+      <div class="inputbox">
+        <input type="button" value="submit" (click)="submit()">
+      </div>
+    </form>
+  </div>
+  <div id="snackbar"></div>
+</body>
